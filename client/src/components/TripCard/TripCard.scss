@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.trip-card {
+  @include touchable();
+
+  box-shadow: $shadow;
+  border-radius: $border-radius;
+  padding: $space-sm;
+  margin: 0 $space-md $space-md 0;
+
+  &__title {
+    font-size: $text-sm;
+    color: $color-primary;
+    margin-bottom: $space-xs;
+  }
+
+  &__date {
+    font-size: $text-xs;
+    color: $color-light;
+    margin-bottom: $space-sm;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: $space-xs;
+  }
+}

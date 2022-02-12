@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+.CircularProgressbar-path {
+  stroke: $color-primary;
+}
+.CircularProgressbar-trail {
+  stroke: white;
+}
+
+.stat {
+  &__label {
+    font-size: $text-xs;
+    margin-bottom: calc($space-xs/1.5);
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+
+    &__chart {
+      width: 18px;
+      height: 18px;
+      margin-right: $space-xxs;
+    }
+
+    &__number {
+      font-size: $space-sm;
+
+      &__unit {
+        margin-left: 3px;
+        color: $color-light;
+      }
+    }
+  }
+}

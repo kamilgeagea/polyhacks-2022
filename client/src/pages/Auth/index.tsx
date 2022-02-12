@@ -1,6 +1,7 @@
 import './Auth.scss';
 
 import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Button, FlatButton, Input } from '../../components';
 
@@ -32,15 +33,15 @@ const Auth: FC = () => {
             password
           />
         </div>
-        <div className="auth__container__button">
-          <Button title={isSignIn ? 'Se connecter' : "S'inscrire"} onClick={() => {}} />
-        </div>
-        <div className="auth__container__flat-button">
-          <FlatButton
-            title={isSignIn ? "Creer un compte" : "Avez-vous déjà un compte?"}
-            onClick={() => setIsSignIn(!isSignIn)}
-          />
-        </div>
+        <Link to="/profile" style={{ textDecoration: 'none' }}>
+          <div className="auth__container__button">
+            <Button title={isSignIn ? 'Se connecter' : "S'inscrire"} onClick={() => {}} />
+          </div>
+        </Link>
+        <FlatButton
+          title={isSignIn ? "Creer un compte" : "Avez-vous déjà un compte?"}
+          onClick={() => setIsSignIn(!isSignIn)}
+        />
       </div>
     </div>
   );
