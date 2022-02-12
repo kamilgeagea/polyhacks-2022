@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.button {
+  background-color: $color-primary;
+  color: white;
+  padding: $space-sm;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  font-size: $space-sm;
+
+  @include touchable();
+}

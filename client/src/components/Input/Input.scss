@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.input {
+  &__field {
+    outline: none;
+    border: none;
+    font-weight: bold;
+    background-color: $color-extra-light;
+    width: 300px;
+    padding: $space-sm;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    &::placeholder {
+      color: $color-light;
+    }
+  }
+}

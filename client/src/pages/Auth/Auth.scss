@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.auth {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/bg-image.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &__container {
+    @include drop-animation();
+
+    margin-left: $space-xl;
+    margin-top: $space-xxl;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__title {
+      color: $color-primary;
+      font-weight: bold;
+      font-size: $text-xxxl;
+      margin-bottom: $space-xs;
+    }
+
+    &__subtitle {
+      color: $color-secondary;
+      font-weight: bold;
+      font-size: $text-lg;
+      margin-bottom: $space-lg;
+    }
+
+    &__input {
+      margin-bottom: $space-md;
+    }
+
+    &__transition-input {
+      &__closed {
+        margin-top: 0;
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
+        transition: margin 0.15s ease-out;
+        overflow: hidden;
+      }
+
+      &__opened {
+        margin-top: $space-md;
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
+      }
+    }
+
+    &__button {
+      margin-top: $space-lg;
+      margin-bottom: $space-md;
+    }
+  }
+}
