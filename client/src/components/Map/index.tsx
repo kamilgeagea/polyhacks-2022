@@ -27,6 +27,11 @@ const MapContainer: FC<IProvidedProps & MapContainerProps> = ({ points, google }
     return "#FBA542";
   };
 
+  const bounds = new google.maps.LatLngBounds();
+  for (let j = 0; j < points.length; j++) {
+    bounds.extend(points[j]);
+  }
+
   return (
     <div className="map">
       <Map
@@ -35,12 +40,13 @@ const MapContainer: FC<IProvidedProps & MapContainerProps> = ({ points, google }
           lat: points[i].lat,
           lng: points[i].lng
         }}
+        bounds={bounds}
         // @ts-ignore
         mapTypeControl={false}
         streetViewControl={false}
         fullscreenControl={false}
         keyboardShortcuts={false}
-        zoom={16}
+        zoom={15}
       >
         {points.map((point, index) => index > 0 ? (
           <Polyline

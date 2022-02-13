@@ -2,7 +2,6 @@ import './App.scss';
 
 import { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import dotenv from 'dotenv';
 
 import { Auth, Profile, Track } from './pages';
 

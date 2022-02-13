@@ -5,3 +5,4 @@ export { default as TripCard } from "./TripCard";
 export { default as Stat } from "./Stat";
 export { default as Graph } from "./Graph";
 export { default as Map } from "./Map";
+export { default as Alert } from "./Alert";

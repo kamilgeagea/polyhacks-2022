@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+
+.alert {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: $space-md;
+  background-color: $color-primary;
+  padding: $space-sm $space-lg;
+  color: white;
+  font-weight: bold;
+  font-size: $space-sm;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  border-radius: $border-radius;
+  z-index: 100;
+  animation: rise 400ms ease;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

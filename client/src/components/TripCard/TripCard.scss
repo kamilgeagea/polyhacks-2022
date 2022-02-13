@@ -7,7 +7,7 @@
   box-shadow: $shadow;
   border-radius: $border-radius;
   padding: $space-sm;
-  margin: 0 $space-md $space-md 0;
+  margin: $space-xs $space-md $space-md $space-xs;
 
   &__title {
     font-size: $text-sm;

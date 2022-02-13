@@ -32,6 +32,7 @@
       flex: 1;
       display: flex;
       margin-top: $space-lg;
+      overflow: hidden;
 
       &__trips {
         flex: 1;
@@ -39,13 +40,25 @@
         flex-direction: column;
         font-size: $text-md;
 
-        &__title {
-          margin-bottom: $space-md;
-        }
+        &__container {
+          overflow: scroll;
 
-        &__grid {
-          display: grid;
-          grid-template-columns: auto auto;
+          &__gradient {
+            position: absolute;
+            height: $space-md;
+            width: 46%;
+            background: linear-gradient(white, rgba(255, 255, 255, 0.2));
+            z-index: 2;
+          }
+
+          &__separator {
+            height: $space-sm;
+          }
+
+          &__grid {
+            display: grid;
+            grid-template-columns: auto auto;
+          }
         }
       }
 
