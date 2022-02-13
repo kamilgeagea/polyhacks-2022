@@ -2,8 +2,9 @@ import './App.scss';
 
 import { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import dotenv from 'dotenv';
 
-import { Auth, Profile } from './pages';
+import { Auth, Profile, Track } from './pages';
 
 const App: FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: FC = () => {
         <Routes>
           <Route path="/" element={<Auth />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/track" element={<Track />} />
         </Routes>
       </BrowserRouter>
     </div>

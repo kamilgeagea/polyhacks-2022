@@ -1,15 +1,14 @@
 import './Auth.scss';
 
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { Button, FlatButton, Input } from '../../components';
+import { Button, Input } from '../../components';
 
 const Auth: FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [isSignIn, setIsSignIn] = useState(true);
 
   return (
     <div className="auth">
@@ -25,23 +24,13 @@ const Auth: FC = () => {
             onChange={e => setPassword(e.target.value)}
             password
           />
-        <div className={`auth__container__transition-input${isSignIn ? '__closed' : '__opened'}`}>
-          <Input
-            value={confirmPassword}
-            placeholder="Confirmer le mot de passe"
-            onChange={e => setConfirmPassword(e.target.value)}
-            password
-          />
+        <div className="auth__container__button">
+          <Button title="Se Connecter" onClick={() => {
+            if (email === 'test@test.com' && password === 'password123') {
+              navigate('/profile');
+            }
+          }} />
         </div>
-        <Link to="/profile" style={{ textDecoration: 'none' }}>
-          <div className="auth__container__button">
-            <Button title={isSignIn ? 'Se connecter' : "S'inscrire"} onClick={() => {}} />
-          </div>
-        </Link>
-        <FlatButton
-          title={isSignIn ? "Creer un compte" : "Avez-vous déjà un compte?"}
-          onClick={() => setIsSignIn(!isSignIn)}
-        />
       </div>
     </div>
   );

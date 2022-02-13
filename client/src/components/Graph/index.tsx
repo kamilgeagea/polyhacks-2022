@@ -1,15 +1,12 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine } from 'victory';
+import { DataPoint } from '../../types';
 
-const data = [
-  { x: "Trajet 1", y: 2 },
-  { x: "Trajet 2", y: 5 },
-  { x: "Trajet 3", y: 3 },
-  { x: "Trajet 4", y: 8 },
-  { x: "Trajet 5", y: 6 }
-]
+interface GraphProps {
+  data: DataPoint[];
+}
 
-const Graph: FC = () => {
+const Graph: FC<GraphProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [dimensions, setDimensions] = useState({

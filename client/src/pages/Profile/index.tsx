@@ -1,6 +1,8 @@
 import './Profile.scss';
 
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Button, Graph, TripCard, Stat } from '../../components';
 
 interface Trip {
@@ -12,6 +14,14 @@ interface Trip {
   calories: number;
   speed: number;
 }
+
+const data = [
+  { x: "Trajet 1", y: 2 },
+  { x: "Trajet 2", y: 5 },
+  { x: "Trajet 3", y: 3 },
+  { x: "Trajet 4", y: 8 },
+  { x: "Trajet 5", y: 6 }
+];
 
 const trips: Trip[] = [
   {
@@ -53,6 +63,8 @@ const trips: Trip[] = [
 ];
 
 const Profile: FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="profile">
       <div className="profile__container">
@@ -60,22 +72,23 @@ const Profile: FC = () => {
           <div className="profile__container__header__title">
             Bonjour, <span className='profile__container__header__title__name'>\\username\\</span> 👋
           </div>
-          <Button title='Se déconnecter' onClick={() => {}} />
+          <Button title='Se déconnecter' onClick={() => navigate('/')} />
         </div>
         <div className="profile__container__content">
           <div className="profile__container__content__trips">
             <div className="profile__container__content__trips__title">Mes trajets 🚴</div>
             <div className="profile__container__content__trips__grid">
               {trips.map(({ id, name, date, distance, power, calories, speed }) => (
-                <TripCard
-                  key={id}
-                  name={name}
-                  date={date}
-                  distance={distance}
-                  power={power}
-                  calories={calories}
-                  speed={speed}
-                />
+                <div key={id} onClick={() => navigate('/track')}>
+                  <TripCard
+                    name={name}
+                    date={date}
+                    distance={distance}
+                    power={power}
+                    calories={calories}
+                    speed={speed}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -83,7 +96,7 @@ const Profile: FC = () => {
             <div className="profile__container__content__stats__title">Mes stats 📈</div>
             <div className="profile__container__content__stats__content">
               <div className="profile__container__content__stats__content__graph">
-                <Graph />
+                <Graph data={data} />
               </div>
               <div className="profile__container__content__stats__content__stats">
                 <div className="profile__container__content__stats__content__stats__item">
